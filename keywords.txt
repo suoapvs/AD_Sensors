@@ -1,0 +1,18 @@
+######################################
+# Syntax Coloring Map For AD_Sensors #
+######################################
+
+######################################
+#       Data types (KEYWORD1)        #
+######################################
+
+AnalogSensor	KEYWORD1
+DigitalSensor	KEYWORD1
+
+######################################
+#  Methods and Functions (KEYWORD2)  #
+######################################
+
+read	KEYWORD2
+isHigh	KEYWORD2
+isLow	KEYWORD2
