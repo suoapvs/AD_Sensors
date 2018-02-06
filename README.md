@@ -44,8 +44,9 @@ a set of methods for working with a digital sensor.
 	
 	/**
 		If you want to invert a sensor signal:
-		INVERT_SIGNAL = true - invert a signal;
-		INVERT_SIGNAL = false - not invert a signal.
+		INVERT_SIGNAL:
+			true - invert a signal;
+			false - not invert a signal.
 	*/
 	DigitalSensor sensor(DIGITAL_PIN, INVERT_SIGNAL);
 
