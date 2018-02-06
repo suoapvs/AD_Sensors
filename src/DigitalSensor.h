@@ -32,9 +32,9 @@ class DigitalSensor final {
 		int pin = 0;
 		
 		/**
-			Invert sensor signal.
+			Actuation signal: LOW or HIGH.
 		*/
-		boolean invert = false;
+		int signal;
 	
 	public:
 		/**
@@ -67,13 +67,6 @@ class DigitalSensor final {
 			false - otherwise.
 		*/
 		boolean isLow();
-		
-	private:
-		/**
-			Returns the sensor high signal.
-			@return sensor signal.
-		*/
-		int signal();
 };
 
 #endif

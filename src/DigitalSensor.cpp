@@ -9,29 +9,20 @@
 */
 #include "DigitalSensor.h"
 
-DigitalSensor::DigitalSensor(const int pin) {
-	this->pin = pin;
-	pinMode(this->pin, INPUT_PULLUP);
+DigitalSensor::DigitalSensor(const int pin) 
+ : DigitalSensor::DigitalSensor(pin, false){
 }
 		
-DigitalSensor::DigitalSensor(const int pin, const boolean invert) 
-: DigitalSensor::DigitalSensor(pin) {
-	this->invert = invert;
+DigitalSensor::DigitalSensor(const int pin, const boolean invert) {
+	this->pin = pin;
+	this->signal = (invert ? LOW : HIGH);
+	pinMode(this->pin, INPUT_PULLUP);
 }
 
 boolean DigitalSensor::isHigh() {
-	return digitalRead(this->pin) == signal();
+	return digitalRead(this->pin) == this->signal;
 }
 
 boolean DigitalSensor::isLow() {
 	return !isHigh();
-}
-
-/**
-	Return the sensor high signal.
-	@return LOW if the invert value is true,
-	HIGH - otherwise.
-*/
-int DigitalSensor::signal() {
-	return (this->invert ? LOW : HIGH);
 }
