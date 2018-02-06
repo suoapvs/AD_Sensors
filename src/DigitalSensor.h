@@ -32,7 +32,11 @@ class DigitalSensor final {
 		int pin = 0;
 		
 		/**
-			Actuation signal: LOW or HIGH.
+			Actuation signal.
+			If invert signal:
+				signal = LOW
+			If not invert signal:
+				signal = HIGH
 		*/
 		int signal;
 	
