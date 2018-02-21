@@ -15,8 +15,8 @@ DigitalSensor::DigitalSensor(const int pin)
 		
 DigitalSensor::DigitalSensor(const int pin, const boolean invert) {
 	this->pin = pin;
-	this->signal = (invert ? LOW : HIGH);
 	pinMode(this->pin, INPUT_PULLUP);
+	invertSignal(invert);
 }
 
 boolean DigitalSensor::isHigh() {
@@ -25,4 +25,8 @@ boolean DigitalSensor::isHigh() {
 
 boolean DigitalSensor::isLow() {
 	return !isHigh();
+}
+
+void DigitalSensor::invertSignal(const boolean invert) {
+	this->signal = (invert ? LOW : HIGH);
 }

@@ -71,6 +71,12 @@ class DigitalSensor final {
 			false - otherwise.
 		*/
 		boolean isLow();
+
+		/**
+			Inverts sensor signal.
+			@param invert - invert sensor signal.
+		*/
+		void invertSignal(const boolean invert);
 };
 
 #endif
