@@ -30,7 +30,7 @@ class DigitalSensor final {
 			Port number that is attached to the sensor.
 		*/
 		int pin = 0;
-		
+
 		/**
 			Actuation signal.
 			If invert signal:
@@ -39,7 +39,7 @@ class DigitalSensor final {
 				signal = HIGH
 		*/
 		int signal;
-	
+
 	public:
 		/**
 			Constructor.
@@ -47,7 +47,7 @@ class DigitalSensor final {
 			that is attached to the sensor.
 		*/
 		DigitalSensor(const int pin);
-		
+
 		/**
 			Constructor.
 			@param pin - a digital port number 
@@ -55,7 +55,7 @@ class DigitalSensor final {
 			@param invert - invert sensor signal.
 		*/
 		DigitalSensor(const int pin, const boolean invert);
-	
+
 		/**
 			Checks a signal on the digital sensor,
 			on the digital port.
