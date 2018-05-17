@@ -11,14 +11,14 @@
 */
 #include <DigitalSensor.h>
 
-#define ANALOG_PIN A1
+#define DIGITAL_PIN 1
 
 DigitalSensor* sensor;
 
 // the setup function runs once when you press reset or power the board
 void setup() {
   Serial.begin(9600);
-  sensor = new DigitalSensor(ANALOG_PIN);
+  sensor = new DigitalSensor(DIGITAL_PIN);
 }
 
 // the loop function runs over and over again forever
@@ -27,4 +27,3 @@ void loop() {
   Serial.println("Digital Sensor: " + signal);
   delay(500);
 }
-

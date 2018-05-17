@@ -11,7 +11,7 @@
 */
 #include <DigitalSensor.h>
 
-#define ANALOG_PIN    A1
+#define DIGITAL_PIN 1
 #define INVERT_SIGNAL true
 
 DigitalSensor* sensor;
@@ -19,7 +19,7 @@ DigitalSensor* sensor;
 // the setup function runs once when you press reset or power the board
 void setup() {
   Serial.begin(9600);
-  sensor = new DigitalSensor(ANALOG_PIN, INVERT_SIGNAL);
+  sensor = new DigitalSensor(DIGITAL_PIN, INVERT_SIGNAL);
 }
 
 // the loop function runs over and over again forever

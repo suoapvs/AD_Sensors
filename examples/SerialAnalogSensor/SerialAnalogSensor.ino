@@ -6,7 +6,7 @@
 
   https://github.com/YuriiSalimov/AD_Sensors
 
-  Created by Yurii Salimov, February, 2018.
+  Created by Yurii Salimov, May, 2018.
   Released into the public domain.
 */
 #include <AnalogSensor.h>
@@ -23,7 +23,7 @@ void setup() {
 
 // the loop function runs over and over again forever
 void loop() {
-  Serial.println("Analog Sensor: " + sensor->read());
+  Serial.print("Analog Sensor: ");
+  Serial.println(sensor->read());
   delay(500);
 }
-
