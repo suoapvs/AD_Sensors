@@ -1,5 +1,5 @@
 /**
-	The class implements a set of methods of the DigitalSensor.h 
+	The class implements a set of methods of the DigitalSensor.h
 	library for working with a digital sensor.
 
 	https://github.com/YuriiSalimov/AD_Sensors
@@ -9,18 +9,23 @@
 */
 #include "DigitalSensor.h"
 
-DigitalSensor::DigitalSensor(const int pin) 
+DigitalSensor::DigitalSensor(const int pin)
  : DigitalSensor::DigitalSensor(pin, false){
 }
-		
+
 DigitalSensor::DigitalSensor(const int pin, const boolean invert) {
 	this->pin = pin;
 	pinMode(this->pin, INPUT_PULLUP);
 	invertSignal(invert);
+  Serial.println("DigitalSensor constructor");
+}
+
+int DigitalSensor::read() {
+  return digitalRead(this->pin);
 }
 
 boolean DigitalSensor::isHigh() {
-	return digitalRead(this->pin) == this->signal;
+	return read() == this->signal;
 }
 
 boolean DigitalSensor::isLow() {

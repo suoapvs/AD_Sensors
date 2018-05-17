@@ -1,5 +1,5 @@
 /**
-	The class implements a set of methods of the AnalogSensor.h 
+	The class implements a set of methods of the AnalogSensor.h
 	library for working with an analog sensor.
 
 	https://github.com/YuriiSalimov/AD_Sensors

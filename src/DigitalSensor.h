@@ -1,29 +1,27 @@
 /**
-	DigitalSensor.h - The library describes 
+	DigitalSensor.h - The library describes
 	a set of methods for working with a digital sensor.
 
 	Instantiation:
 		DigitalSensor sensor(2);
 
 	Read signal:
+		sensor.read();
 		sensor.isHigh();
 		sensor.isLow();
 
 	https://github.com/YuriiSalimov/AD_Sensors
 
-	Created by Yurii Salimov, February, 2018.
+	Created by Yurii Salimov, May, 2018.
 	Released into the public domain.
 */
 #ifndef DIGITAL_SENSOR_H
 #define DIGITAL_SENSOR_H
 
-#if defined(ARDUINO) && (ARDUINO >= 100)
-	#include <Arduino.h>
-#else
-	#include <WProgram.h>
-#endif 
+#include "Sensor.h"
 
-class DigitalSensor final {
+class DigitalSensor final :
+	public Sensor {
 
 	private:
 		/**
@@ -43,18 +41,24 @@ class DigitalSensor final {
 	public:
 		/**
 			Constructor.
-			@param pin - a digital port number 
+			@param pin - a digital port number
 			that is attached to the sensor.
 		*/
 		DigitalSensor(const int pin);
 
 		/**
 			Constructor.
-			@param pin - a digital port number 
+			@param pin - a digital port number
 			that is attached to the sensor.
 			@param invert - invert sensor signal.
 		*/
 		DigitalSensor(const int pin, const boolean invert);
+
+		/**
+			Reads and return a signal from the digital sensor,
+			from a digital port.
+		*/
+		int read() override;
 
 		/**
 			Checks a signal on the digital sensor,
@@ -80,4 +84,3 @@ class DigitalSensor final {
 };
 
 #endif
-
