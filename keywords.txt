@@ -6,6 +6,7 @@
 #       Data types (KEYWORD1)        #
 ######################################
 
+Sensor	KEYWORD1
 AnalogSensor	KEYWORD1
 DigitalSensor	KEYWORD1
 
