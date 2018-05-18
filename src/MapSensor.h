@@ -1,6 +1,6 @@
 /**
   MapSensor.h - Reads a signal from a delegated sensor,
-	maps the signal and displays information in the default Serial.
+	maps the signal and return it.
 
 	Instantiation:
 	  Sensor otherSensor();

@@ -17,7 +17,6 @@ DigitalSensor::DigitalSensor(const int pin, const boolean invert) {
 	this->pin = pin;
 	pinMode(this->pin, INPUT_PULLUP);
 	invertSignal(invert);
-  Serial.println("DigitalSensor constructor");
 }
 
 int DigitalSensor::read() {

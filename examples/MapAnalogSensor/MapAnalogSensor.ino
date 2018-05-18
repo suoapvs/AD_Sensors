@@ -1,7 +1,7 @@
 /*
-  Serial Analog Sensor
+  Serial Map Analog Sensor
 
-  Reads a signal from an analog sensor, map the signal
+  Reads a signal from an analog sensor, maps the signal
   and displays information in the default Serial.
 
   https://github.com/YuriiSalimov/AD_Sensors
@@ -33,6 +33,6 @@ void setup() {
 // the loop function runs over and over again forever
 void loop() {
   Serial.print("Original: " + String(analogSensor->read()));
-  Serial.print(" | Maped: " + String(mapSensor->read()));
+  Serial.println(" | Maped: " + String(mapSensor->read()));
   delay(500);
 }

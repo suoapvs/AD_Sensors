@@ -1,7 +1,7 @@
 /*
-  Serial Analog Sensor
+  Serial Constrain Analog Sensor
 
-  Reads a signal from an analog sensor, constrain the signal
+  Reads a signal from an analog sensor, constrains the signal
   and displays information in the default Serial.
 
   https://github.com/YuriiSalimov/AD_Sensors

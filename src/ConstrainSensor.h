@@ -1,6 +1,6 @@
 /**
 	ConstrainSensor.h - Reads a signal from a delegated sensor,
-	constrains the signal and displays information in the default Serial.
+	constrains the signal and return it.
 
 	Instantiation:
 	  Sensor otherSensor();

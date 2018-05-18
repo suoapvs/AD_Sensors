@@ -1,8 +1,8 @@
 /*
-  Serial Analog Sensor
+  Serial Constrain Map Analog Sensor
 
   Reads a signal from an analog sensor,
-  map and constrain the signal
+  maps and constrains the signal
   and displays information in the default Serial.
 
   https://github.com/YuriiSalimov/AD_Sensors
