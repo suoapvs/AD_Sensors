@@ -18,19 +18,19 @@ a digital and analog sensors.
 Describes a set of methods for working with an analog sensor.
 
 ```cpp
-	#include <AnalogSensor.h>
+#include <AnalogSensor.h>
 
-	/**
-		ANALOG_PIN - an analog port number that
-		is attached to the sensor.
-	*/
-	AnalogSensor* sensor = new AnalogSensor(ANALOG_PIN);
+/**
+	ANALOG_PIN - an analog port number that
+	is attached to the sensor.
+*/
+AnalogSensor* sensor = new AnalogSensor(ANALOG_PIN);
 
-	/**
-		Reads and return a signal from the analog sensor,
-		from an analog port.
-	*/
-	int value = sensor->read();
+/**
+	Reads and return a signal from the analog sensor,
+	from an analog port.
+*/
+int value = sensor->read();
 ```
 
 ### Digital Sensor
@@ -38,41 +38,41 @@ Describes a set of methods for working with an analog sensor.
 Describes a set of methods for working with a digital sensor.
 
 ```cpp
-	#include <DigitalSensor.h>
+#include <DigitalSensor.h>
 
-	/**
-		DIGITAL_PIN - a digital port number that
-		is attached to the sensor.
-	*/
-	DigitalSensor* sensor = new DigitalSensor(DIGITAL_PIN);
+/**
+	DIGITAL_PIN - a digital port number that
+	is attached to the sensor.
+*/
+DigitalSensor* sensor = new DigitalSensor(DIGITAL_PIN);
 
-	/**
-		If you need to invert a sensor signal:
-		INVERT_SIGNAL:
-			true - invert a signal;
-			false - not invert a signal.
-	*/
-	DigitalSensor* sensor = new DigitalSensor(DIGITAL_PIN, INVERT_SIGNAL);
+/**
+	If you need to invert a sensor signal:
+	INVERT_SIGNAL:
+		true - invert a signal;
+		false - not invert a signal.
+*/
+DigitalSensor* sensor = new DigitalSensor(DIGITAL_PIN, INVERT_SIGNAL);
 
-	/**
-		Reads and return a signal from the digital sensor
-		(0 or 1, 0 == LOW, 1 == HIGH).
-	*/
-	int value = sensor->read();
+/**
+	Reads and return a signal from the digital sensor
+	(0 or 1, 0 == LOW, 1 == HIGH).
+*/
+int value = sensor->read();
 
-	/**
-		Checks a signal on the digital sensor,
-		on the digital port. Return true if
-		the sensor signal is high, false - otherwise.
-	*/
-	boolean value = sensor->isHigh();
+/**
+	Checks a signal on the digital sensor,
+	on the digital port. Return true if
+	the sensor signal is high, false - otherwise.
+*/
+boolean value = sensor->isHigh();
 
-	/**
-		Checks a signal on the digital sensor,
-		on the digital port. Return true if
-		the sensor signal is low, false - otherwise.
-	*/
-	boolean value = sensor->isLow();
+/**
+	Checks a signal on the digital sensor,
+	on the digital port. Return true if
+	the sensor signal is low, false - otherwise.
+*/
+boolean value = sensor->isLow();
 ```
 
 ### Map Sensor
@@ -81,18 +81,18 @@ Reads a signal from a delegated sensor,
 maps the signal and return it.
 
 ```cpp
-	#include <AnalogSensor.h>
-	#include <MapSensor.h>
+#include <AnalogSensor.h>
+#include <MapSensor.h>
 
-	AnalogSensor* delegateSensor = new AnalogSensor(ANALOG_PIN);
+AnalogSensor* delegateSensor = new AnalogSensor(ANALOG_PIN);
 
-	MapSensor* sensor = new MapSensor(
-		delegateSensor,
-		FROM_LOW, FROM_HIGH,
-		TO_LOW, TO_HIGH
-	);
+MapSensor* sensor = new MapSensor(
+	delegateSensor,
+	FROM_LOW, FROM_HIGH,
+	TO_LOW, TO_HIGH
+);
 
-	int value = sensor->read();
+int value = sensor->read();
 ```
 
 ### Average Sensor
@@ -101,18 +101,18 @@ Reads a signal from a delegated sensor,
 averages the signal and return it.
 
 ```cpp
-	#include <AnalogSensor.h>
-	#include <AverageSensor.h>
+#include <AnalogSensor.h>
+#include <AverageSensor.h>
 
-	AnalogSensor* delegateSensor = new AnalogSensor(ANALOG_PIN);
+AnalogSensor* delegateSensor = new AnalogSensor(ANALOG_PIN);
 
-	/**
-		COUNTER - number of readings;
-		DELAY_TIME - delay time between readings.
-	*/
-	AverageSensor* sensor = new AverageSensor(delegateSensor, COUNTER, DELAY_TIME);
+/**
+	COUNTER - number of readings;
+	DELAY_TIME - delay time between readings.
+*/
+AverageSensor* sensor = new AverageSensor(delegateSensor, COUNTER, DELAY_TIME);
 
-	int value = sensor->read();
+int value = sensor->read();
 ```
 
 ### Constrain Sensor
@@ -121,18 +121,18 @@ Reads a signal from a delegated sensor,
 constrains the signal and return it.
 
 ```cpp
-	#include <AnalogSensor.h>
-	#include <ConstrainSensor.h>
+#include <AnalogSensor.h>
+#include <ConstrainSensor.h>
 
-	AnalogSensor* delegateSensor = new AnalogSensor(ANALOG_PIN);
+AnalogSensor* delegateSensor = new AnalogSensor(ANALOG_PIN);
 
-	/**
-		COUNTER - number of readings;
-		DELAY_TIME - delay time between readings.
-	*/
-	ConstrainSensor* sensor = new ConstrainSensor(delegateSensor, COUNTER, DELAY_TIME);
+/**
+	COUNTER - number of readings;
+	DELAY_TIME - delay time between readings.
+*/
+ConstrainSensor* sensor = new ConstrainSensor(delegateSensor, COUNTER, DELAY_TIME);
 
-	int value = sensor->read();
+int value = sensor->read();
 ```
 
 ## Example
