@@ -1,13 +1,17 @@
 #include "AverageSensor.h"
 
 AverageSensor::AverageSensor(
-	const Sensor* sensor,
+	const Sensor* delegateSensor,
 	const int counter,
 	const int delayTime
 ) {
-	this->sensor = sensor;
+	this->sensor = delegateSensor;
 	this->counter = max(counter, AVERAGE_SENSOR_MIN_COUNTER);
 	this->delayTime = max(delayTime, AVERAGE_SENSOR_MIN_TIME_DELAY);
+}
+
+AverageSensor::~AverageSensor() {
+	delete this->sensor;
 }
 
 int AverageSensor::read() {

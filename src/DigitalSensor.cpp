@@ -1,12 +1,3 @@
-/**
-	The class implements a set of methods of the DigitalSensor.h
-	library for working with a digital sensor.
-
-	https://github.com/YuriiSalimov/AD_Sensors
-
-	Created by Yurii Salimov, February, 2018.
-	Released into the public domain.
-*/
 #include "DigitalSensor.h"
 
 DigitalSensor::DigitalSensor(const int pin)

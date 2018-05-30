@@ -6,9 +6,9 @@
 		DigitalSensor sensor(2);
 
 	Read signal:
-		sensor.read();
-		sensor.isHigh();
-		sensor.isLow();
+		int value = sensor.read();
+		boolean value = sensor.isHigh();
+		boolean value = sensor.isLow();
 
 	https://github.com/YuriiSalimov/AD_Sensors
 

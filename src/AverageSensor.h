@@ -7,7 +7,7 @@
 		AverageSensor sensor(otherSensor, 0, 100);
 
 	Read signal:
-		sensor.read();
+		int value = sensor.read();
 
 	https://github.com/YuriiSalimov/AD_Sensors
 
@@ -31,12 +31,23 @@ class AverageSensor final :
 		int delayTime = 0;
 
 	public:
+    /**
+      Constructor.
+      @param counter - number of readings;
+      @param delayTime - delay time between readings.
+    */
 		AverageSensor(
-			const Sensor* sensor,
+			const Sensor* delegateSensor,
 			const int counter,
 			const int delayTime
 		);
 
+    ~AverageSensor() override;
+
+    /**
+      Reads a signal from a delegated sensor,
+      averages the signal and return it.
+    */
 		int read() override;
 
 	private:

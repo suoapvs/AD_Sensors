@@ -7,7 +7,7 @@
 		ConstrainSensor sensor(otherSensor, 0, 100);
 
 	Read signal:
-		sensor.read();
+		int value = sensor.read();
 
 	https://github.com/YuriiSalimov/AD_Sensors
 
@@ -28,8 +28,18 @@ class ConstrainSensor final :
     int high = 0;
 
 	public:
-		ConstrainSensor(const Sensor* sensor, const int low, const int high);
+		ConstrainSensor(
+			const Sensor* delegateSensor,
+			const int low,
+			const int high
+		);
 
+		~ConstrainSensor() override;
+
+		/**
+			Reads a signal from a delegated sensor,
+			constrains the signal and return it.
+		*/
 		int read() override;
 };
 

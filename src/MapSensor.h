@@ -7,7 +7,7 @@
 		MapSensor sensor(otherSensor, 0, 1023, 0, 100);
 
 	Read signal:
-		sensor.read();
+		int value = sensor.read();
 
 	https://github.com/YuriiSalimov/AD_Sensors
 
@@ -31,11 +31,17 @@ class MapSensor final :
 
 	public:
 		MapSensor(
-      const Sensor* sensor,
+      const Sensor* delegateSensor,
       const int fromLow, const int fromHigh,
       const int toLow, const int toHigh
     );
 
+		~MapSensor() override;
+
+		/**
+			Reads a signal from a delegated sensor,
+			maps the signal and return it.
+		*/
 		int read() override;
 };
 

@@ -21,8 +21,10 @@ class Sensor {
     Sensor();
 
 	public:
+		virtual ~Sensor();
+
 		/**
-			Reads and return a signal from a sensor,
+			Reads and return a signal from a sensor.
 		*/
 		virtual int read();
 };

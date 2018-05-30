@@ -6,7 +6,7 @@
 		AnalogSensor sensor(A1);
 
 	Read signal:
-		sensor.read();
+		int value = sensor.read();
 
 	https://github.com/YuriiSalimov/AD_Sensors
 
