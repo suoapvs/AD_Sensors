@@ -13,7 +13,7 @@
 
 #define DIGITAL_PIN 1
 
-DigitalSensor* sensor;
+DigitalSensor* sensor = NULL;
 
 // the setup function runs once when you press reset or power the board
 void setup() {

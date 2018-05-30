@@ -13,7 +13,7 @@
 
 #define ANALOG_PIN A1
 
-AnalogSensor* sensor;
+AnalogSensor* sensor = NULL;
 
 // the setup function runs once when you press reset or power the board
 void setup() {

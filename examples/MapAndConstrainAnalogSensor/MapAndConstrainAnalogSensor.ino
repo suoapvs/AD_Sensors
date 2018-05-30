@@ -11,9 +11,9 @@
   Released into the public domain.
 */
 #include <Sensor.h>
-#include <ConstrainSensor.h>
-#include <MapSensor.h>
 #include <AnalogSensor.h>
+#include <MapSensor.h>
+#include <ConstrainSensor.h>
 
 #define ANALOG_PIN A1
 
@@ -24,22 +24,22 @@
 #define MIN 0
 #define MAX 100
 
-Sensor* analogSensor;
-Sensor* mapSensor;
-Sensor* constrainSensor;
+Sensor* analogSensor = NULL;
+Sensor* mapSensor = NULL;
+Sensor* constrainSensor = NULL;
 
 // the setup function runs once when you press reset or power the board
 void setup() {
   Serial.begin(9600);
   analogSensor = new AnalogSensor(ANALOG_PIN);
   mapSensor = new MapSensor(analogSensor, FROM_LOW, FROM_HIGH, TO_LOW, TO_HIGH);
-  constrainSensor = new ConstrainSensor(mapSensor,MIN, MAX);
+  constrainSensor = new ConstrainSensor(mapSensor, MIN, MAX);
 }
 
 // the loop function runs over and over again forever
 void loop() {
   Serial.print("Original: " + String(analogSensor->read()));
   Serial.print(" | Maped: " + String(mapSensor->read()));
-  Serial.println(" | Constrained: " + String(constrainSensor->read()));
+  Serial.println(" | Constrained: " + String(sensor->read()));
   delay(500);
 }

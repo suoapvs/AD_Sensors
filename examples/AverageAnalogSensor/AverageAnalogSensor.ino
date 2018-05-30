@@ -17,7 +17,7 @@
 #define NUMBER_OF_READINGS 10
 #define DELAY_TIME 10
 
-Sensor* sensor;
+Sensor* sensor = NULL;
 
 // the setup function runs once when you press reset or power the board
 void setup() {

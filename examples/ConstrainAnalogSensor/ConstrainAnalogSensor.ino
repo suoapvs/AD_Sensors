@@ -18,8 +18,8 @@
 #define LOW 0
 #define HIGH 100
 
-Sensor* analogSensor;
-Sensor* constrainSensor;
+Sensor* analogSensor = NULL;
+Sensor* constrainSensor = NULL;
 
 // the setup function runs once when you press reset or power the board
 void setup() {

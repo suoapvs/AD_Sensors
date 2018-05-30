@@ -20,8 +20,8 @@
 #define TO_LOW 0
 #define TO_HIGH 100
 
-Sensor* analogSensor;
-Sensor* mapSensor;
+Sensor* analogSensor = NULL;
+Sensor* mapSensor = NULL;
 
 // the setup function runs once when you press reset or power the board
 void setup() {
