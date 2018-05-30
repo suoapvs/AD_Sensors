@@ -2,8 +2,7 @@
 
 For Arduino boards.
 
-The Library implements a set of methods for working with
-a digital and analog sensors.
+The Library implements a set of methods for working with digital and analog sensors.
 
 ## Installation
 
