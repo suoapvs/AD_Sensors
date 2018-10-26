@@ -24,10 +24,10 @@ class MapSensor final :
 
 	private:
 		const Sensor* sensor;
-    int fromLow = 0;
-    int fromHigh = 0;
-    int toLow = 0;
-    int toHigh = 0;
+    int fromLow;
+    int fromHigh;
+    int toLow;
+    int toHigh;
 
 	public:
 		MapSensor(

@@ -23,6 +23,6 @@ int AverageSensor::read() {
 	return (sum / this->counter);
 }
 
-void AverageSensor::sleep() {
+inline void AverageSensor::sleep() {
 	delay(this->delayTime);
 }

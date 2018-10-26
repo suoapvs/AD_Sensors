@@ -24,8 +24,8 @@ class ConstrainSensor final :
 
 	private:
 		const Sensor* sensor;
-    int low = 0;
-    int high = 0;
+    int low;
+    int high;
 
 	public:
 		ConstrainSensor(

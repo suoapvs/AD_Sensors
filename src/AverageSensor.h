@@ -17,7 +17,7 @@
 #ifndef AVERAGE_SENSOR_H
 #define AVERAGE_SENSOR_H
 
-#include <Sensor.h>
+#include "Sensor.h"
 
 #define AVERAGE_SENSOR_MIN_COUNTER 1
 #define AVERAGE_SENSOR_MIN_TIME_DELAY 1
@@ -27,8 +27,8 @@ class AverageSensor final :
 
 	private:
 		const Sensor* sensor;
-		int counter = 0;
-		int delayTime = 0;
+		int counter;
+		int delayTime;
 
 	public:
     /**
@@ -51,7 +51,7 @@ class AverageSensor final :
 		int read() override;
 
 	private:
-		void sleep();
+		inline void sleep();
 };
 
 #endif

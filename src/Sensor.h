@@ -18,15 +18,15 @@
 class Sensor {
 
   protected:
-    Sensor();
+    Sensor() {}
 
 	public:
-		virtual ~Sensor();
+		virtual ~Sensor() {}
 
 		/**
 			Reads and return a signal from a sensor.
 		*/
-		virtual int read();
+		virtual int read() {}
 };
 
 #endif

@@ -25,7 +25,7 @@ class AnalogSensor final :
 		/**
 			Port number that is attached to the sensor.
 		*/
-		int pin = 0;
+		int pin;
 
 	public:
 		/**
