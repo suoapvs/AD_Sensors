@@ -6,8 +6,12 @@ DigitalSensor::DigitalSensor(const int pin)
 
 DigitalSensor::DigitalSensor(const int pin, const boolean invert) {
 	this->pin = pin;
-	pinMode(this->pin, INPUT_PULLUP);
 	invertSignal(invert);
+  init();
+}
+
+inline void DigitalSensor::init() {
+	pinMode(this->pin, INPUT_PULLUP);
 }
 
 int DigitalSensor::read() {

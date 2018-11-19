@@ -22,8 +22,7 @@
 #define AVERAGE_SENSOR_MIN_COUNTER 1
 #define AVERAGE_SENSOR_MIN_TIME_DELAY 1
 
-class AverageSensor final :
-  public Sensor {
+class AverageSensor final : public Sensor {
 
 	private:
 		const Sensor* sensor;
@@ -37,9 +36,9 @@ class AverageSensor final :
       @param delayTime - delay time between readings.
     */
 		AverageSensor(
-			const Sensor* delegateSensor,
-			const int counter,
-			const int delayTime
+			Sensor* delegateSensor,
+			int counter,
+			int delayTime
 		);
 
     ~AverageSensor() override;

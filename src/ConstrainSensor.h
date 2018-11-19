@@ -19,8 +19,7 @@
 
 #include "Sensor.h"
 
-class ConstrainSensor final :
-	public Sensor {
+class ConstrainSensor final : public Sensor {
 
 	private:
 		const Sensor* sensor;
@@ -29,9 +28,9 @@ class ConstrainSensor final :
 
 	public:
 		ConstrainSensor(
-			const Sensor* delegateSensor,
-			const int low,
-			const int high
+			Sensor* delegateSensor,
+			int low,
+			int high
 		);
 
 		~ConstrainSensor() override;

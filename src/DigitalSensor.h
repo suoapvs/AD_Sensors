@@ -20,8 +20,7 @@
 
 #include "Sensor.h"
 
-class DigitalSensor final :
-	public Sensor {
+class DigitalSensor final : public Sensor {
 
 	private:
 		/**
@@ -42,17 +41,17 @@ class DigitalSensor final :
 		/**
 			Constructor.
 			@param pin - a digital port number
-			that is attached to the sensor.
+				that is attached to the sensor.
 		*/
-		DigitalSensor(const int pin);
+		DigitalSensor(int pin);
 
 		/**
 			Constructor.
 			@param pin - a digital port number
-			that is attached to the sensor.
+				that is attached to the sensor.
 			@param invert - invert sensor signal.
 		*/
-		DigitalSensor(const int pin, const boolean invert);
+		DigitalSensor(int pin, boolean invert);
 
 		/**
 			Reads and return a signal from the digital sensor,
@@ -80,7 +79,13 @@ class DigitalSensor final :
 			Inverts sensor signal.
 			@param invert - invert sensor signal.
 		*/
-		void invertSignal(const boolean invert);
+		void invertSignal(boolean invert);
+
+	private:
+		/**
+			Initialization of module.
+		*/
+		inline void init();
 };
 
 #endif

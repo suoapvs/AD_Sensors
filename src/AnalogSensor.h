@@ -18,8 +18,7 @@
 
 #include "Sensor.h"
 
-class AnalogSensor final :
-	public Sensor {
+class AnalogSensor final : public Sensor {
 
 	private:
 		/**
@@ -33,7 +32,7 @@ class AnalogSensor final :
 			@param pin - an analog port number
 			that is attached to the sensor.
 		*/
-		AnalogSensor(const int pin);
+		AnalogSensor(int pin);
 
 		/**
 			Reads and return a signal from the analog sensor,
@@ -41,6 +40,12 @@ class AnalogSensor final :
 			@return the analog sensor signal.
 		*/
 		int read() override;
+
+	private:
+		/**
+			Initialization of module.
+		*/
+		inline void init();
 };
 
 #endif

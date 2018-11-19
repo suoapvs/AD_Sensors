@@ -19,8 +19,7 @@
 
 #include "Sensor.h"
 
-class MapSensor final :
-	public Sensor {
+class MapSensor final : public Sensor {
 
 	private:
 		const Sensor* sensor;
@@ -31,9 +30,9 @@ class MapSensor final :
 
 	public:
 		MapSensor(
-      const Sensor* delegateSensor,
-      const int fromLow, const int fromHigh,
-      const int toLow, const int toHigh
+      Sensor* delegateSensor,
+      int fromLow, int fromHigh,
+      int toLow, int toHigh
     );
 
 		~MapSensor() override;
