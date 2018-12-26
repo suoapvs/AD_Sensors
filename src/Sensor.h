@@ -17,8 +17,8 @@
 
 class Sensor {
 
-  protected:
-    Sensor() {}
+	protected:
+		Sensor() {}
 
 	public:
 		virtual ~Sensor() {}

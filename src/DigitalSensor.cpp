@@ -7,7 +7,7 @@ DigitalSensor::DigitalSensor(const int pin)
 DigitalSensor::DigitalSensor(const int pin, const boolean invert) {
 	this->pin = pin;
 	invertSignal(invert);
-  init();
+	init();
 }
 
 inline void DigitalSensor::init() {
@@ -15,7 +15,7 @@ inline void DigitalSensor::init() {
 }
 
 int DigitalSensor::read() {
-  return digitalRead(this->pin);
+	return digitalRead(this->pin);
 }
 
 boolean DigitalSensor::isHigh() {

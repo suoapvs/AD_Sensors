@@ -30,23 +30,23 @@ class AverageSensor final : public Sensor {
 		int delayTime;
 
 	public:
-    /**
-      Constructor.
-      @param counter - number of readings;
-      @param delayTime - delay time between readings.
-    */
+		/**
+		  Constructor.
+		  @param counter - number of readings;
+		  @param delayTime - delay time between readings.
+		*/
 		AverageSensor(
 			Sensor* delegateSensor,
 			int counter,
 			int delayTime
 		);
 
-    ~AverageSensor() override;
+		~AverageSensor() override;
 
-    /**
-      Reads a signal from a delegated sensor,
-      averages the signal and return it.
-    */
+		/**
+		  Reads a signal from a delegated sensor,
+		  averages the signal and return it.
+		*/
 		int read() override;
 
 	private:

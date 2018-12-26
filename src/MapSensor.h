@@ -23,17 +23,17 @@ class MapSensor final : public Sensor {
 
 	private:
 		const Sensor* sensor;
-    int fromLow;
-    int fromHigh;
-    int toLow;
-    int toHigh;
+		int fromLow;
+		int fromHigh;
+		int toLow;
+		int toHigh;
 
 	public:
 		MapSensor(
-      Sensor* delegateSensor,
-      int fromLow, int fromHigh,
-      int toLow, int toHigh
-    );
+			const Sensor* delegateSensor,
+			int fromLow, int fromHigh,
+			int toLow, int toHigh
+		);
 
 		~MapSensor() override;
 

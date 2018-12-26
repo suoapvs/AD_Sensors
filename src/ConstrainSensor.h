@@ -23,12 +23,12 @@ class ConstrainSensor final : public Sensor {
 
 	private:
 		const Sensor* sensor;
-    int low;
-    int high;
+		int low;
+		int high;
 
 	public:
 		ConstrainSensor(
-			Sensor* delegateSensor,
+			const Sensor* delegateSensor,
 			int low,
 			int high
 		);
