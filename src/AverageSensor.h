@@ -25,7 +25,7 @@
 class AverageSensor final : public Sensor {
 
 	private:
-		const Sensor* sensor;
+		const Sensor* origin;
 		int counter;
 		int delayTime;
 
@@ -36,7 +36,7 @@ class AverageSensor final : public Sensor {
 		  @param delayTime - delay time between readings.
 		*/
 		AverageSensor(
-			Sensor* delegateSensor,
+			const Sensor* origin,
 			int counter,
 			int delayTime
 		);

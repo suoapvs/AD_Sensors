@@ -1,19 +1,19 @@
 #include "ConstrainSensor.h"
 
 ConstrainSensor::ConstrainSensor(
-  const Sensor* delegateSensor,
+  const Sensor* origin,
   const int low,
   const int high
 ) {
-  this->sensor = delegateSensor;
+  this->origin = origin;
   this->low = low;
   this->high = high;
 }
 
 ConstrainSensor::~ConstrainSensor() {
-  delete this->sensor;
+  delete this->origin;
 }
 
 int ConstrainSensor::read() {
-  return constrain(this->sensor->read(), this->low, this->high);
+  return constrain(this->origin->read(), this->low, this->high);
 }
