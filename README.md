@@ -80,13 +80,14 @@ Reads a signal from a delegated sensor,
 maps the signal and return it.
 
 ```cpp
+#include <Sensor.h>
 #include <AnalogSensor.h>
 #include <MapSensor.h>
 
-AnalogSensor* delegateSensor = new AnalogSensor(ANALOG_PIN);
+Sensor* origin = new AnalogSensor(ANALOG_PIN);
 
-MapSensor* sensor = new MapSensor(
-	delegateSensor,
+Sensor* sensor = new MapSensor(
+	origin,
 	FROM_LOW, FROM_HIGH,
 	TO_LOW, TO_HIGH
 );
@@ -100,16 +101,17 @@ Reads a signal from a delegated sensor,
 averages the signal and return it.
 
 ```cpp
+#include <Sensor.h>
 #include <AnalogSensor.h>
 #include <AverageSensor.h>
 
-AnalogSensor* delegateSensor = new AnalogSensor(ANALOG_PIN);
+Sensor* origin = new AnalogSensor(ANALOG_PIN);
 
 /**
 	COUNTER - number of readings;
 	DELAY_TIME - delay time between readings.
 */
-AverageSensor* sensor = new AverageSensor(delegateSensor, COUNTER, DELAY_TIME);
+Sensor* sensor = new AverageSensor(origin, COUNTER, DELAY_TIME);
 
 int value = sensor->read();
 ```
@@ -120,16 +122,17 @@ Reads a signal from a delegated sensor,
 constrains the signal and return it.
 
 ```cpp
+#include <Sensor.h>
 #include <AnalogSensor.h>
 #include <ConstrainSensor.h>
 
-AnalogSensor* delegateSensor = new AnalogSensor(ANALOG_PIN);
+Sensor* origin = new AnalogSensor(ANALOG_PIN);
 
 /**
 	COUNTER - number of readings;
 	DELAY_TIME - delay time between readings.
 */
-ConstrainSensor* sensor = new ConstrainSensor(delegateSensor, COUNTER, DELAY_TIME);
+Sensor* sensor = new ConstrainSensor(origin, COUNTER, DELAY_TIME);
 
 int value = sensor->read();
 ```
