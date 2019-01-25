@@ -22,13 +22,13 @@
 class ConstrainSensor final : public Sensor {
 
 	private:
-		const Sensor* origin;
+		Sensor* origin;
 		int low;
 		int high;
 
 	public:
 		ConstrainSensor(
-			const Sensor* origin,
+			Sensor* origin,
 			int low,
 			int high
 		);

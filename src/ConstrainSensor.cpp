@@ -1,7 +1,7 @@
 #include "ConstrainSensor.h"
 
 ConstrainSensor::ConstrainSensor(
-  const Sensor* origin,
+  Sensor* origin,
   const int low,
   const int high
 ) {

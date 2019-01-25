@@ -22,7 +22,7 @@
 class MapSensor final : public Sensor {
 
 	private:
-		const Sensor* origin;
+		Sensor* origin;
 		int fromLow;
 		int fromHigh;
 		int toLow;
@@ -30,7 +30,7 @@ class MapSensor final : public Sensor {
 
 	public:
 		MapSensor(
-			const Sensor* origin,
+			Sensor* origin,
 			int fromLow, int fromHigh,
 			int toLow, int toHigh
 		);

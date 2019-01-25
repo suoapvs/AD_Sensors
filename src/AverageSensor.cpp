@@ -1,7 +1,7 @@
 #include "AverageSensor.h"
 
 AverageSensor::AverageSensor(
-	const Sensor* origin,
+	Sensor* origin,
 	const int counter,
 	const int delayTime
 ) {

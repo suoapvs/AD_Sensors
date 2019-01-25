@@ -1,7 +1,7 @@
 #include "MapSensor.h"
 
 MapSensor::MapSensor(
-  const Sensor* origin,
+  Sensor* origin,
   const int fromLow, const int fromHigh,
   const int toLow, const int toHigh
 ) {
