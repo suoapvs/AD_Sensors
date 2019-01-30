@@ -76,6 +76,54 @@ boolean value = sensor->isHigh();
 boolean value = sensor->isLow();
 ```
 
+### [Average Sensor](/src/AverageSensor.h)
+
+Reads a signal from a origin sensor,
+averages the signal and return it.
+
+```cpp
+#include <Sensor.h>
+#include <AnalogSensor.h>
+#include <AverageSensor.h>
+
+Sensor* origin = new AnalogSensor(ANALOG_PIN);
+
+/**
+    COUNTER - number of readings;
+    DELAY_TIME - delay time between readings.
+*/
+Sensor* sensor = new AverageSensor(origin, COUNTER, DELAY_TIME);
+
+/**
+    Returns the average signal value.
+*/
+int value = sensor->read();
+```
+
+### [Smooth Sensor](/src/SmoothSensor.h)
+
+Reads a signal from a origin sensor,
+smoothes (moving average, rolling average or running average)
+the signal and return it.
+
+```cpp
+#include <Sensor.h>
+#include <AnalogSensor.h>
+#include <SmoothSensor.h>
+
+Sensor* origin = new AnalogSensor(ANALOG_PIN);
+
+/**
+    SMOOTHING_FACTOR - smoothing factor of readings (0 = not smooth).
+*/
+Sensor* sensor = new SmoothSensor(origin, SMOOTHING_FACTOR);
+
+/**
+    Return the average signal value.
+*/
+int value = sensor->read();
+```
+
 ### [Map Sensor](/src/MapSensor.h)
 
 Reads a signal from a origin sensor, maps the signal and return it.
@@ -104,54 +152,6 @@ Sensor* sensor = new MapSensor(
 
 /**
     Returns the mapped signal value.
-*/
-int value = sensor->read();
-```
-
-### [Average Sensor](/src/AverageSensor.h)
-
-Reads a signal from a origin sensor,
-averages the signal and return it.
-
-```cpp
-#include <Sensor.h>
-#include <AnalogSensor.h>
-#include <AverageSensor.h>
-
-Sensor* origin = new AnalogSensor(ANALOG_PIN);
-
-/**
-    COUNTER - number of readings;
-    DELAY_TIME - delay time between readings.
-*/
-Sensor* sensor = new AverageSensor(origin, COUNTER, DELAY_TIME);
-
-/**
-    Returns the average signal value.
-*/
-int value = sensor->read();
-```
-
-### [SmoothSensor](/src/SmoothSensor.h)
-
-Reads a signal from a origin sensor,
-smoothes (moving average, rolling average or running average)
-the signal and return it.
-
-```cpp
-#include <Sensor.h>
-#include <AnalogSensor.h>
-#include <SmoothSensor.h>
-
-Sensor* origin = new AnalogSensor(ANALOG_PIN);
-
-/**
-    SMOOTHING_FACTOR - smoothing factor of readings (0 = not smooth).
-*/
-Sensor* sensor = new SmoothSensor(origin, SMOOTHING_FACTOR);
-
-/**
-    Return the average signal value.
 */
 int value = sensor->read();
 ```
