@@ -6,7 +6,7 @@
 
   https://github.com/YuriiSalimov/AD_Sensors
 
-  Created by Yurii Salimov, May, 2018.
+  Created by Yurii Salimov, January, 2019.
   Released into the public domain.
 */
 #include <Sensor.h>
