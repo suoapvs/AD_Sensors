@@ -12,6 +12,7 @@ DigitalSensor	KEYWORD1
 MapSensor	KEYWORD1
 ConstrainSensor	KEYWORD1
 AverageSensor	KEYWORD1
+MovingAverageSensor	KEYWORD1
 
 ######################################
 #  Methods and Functions (KEYWORD2)  #
