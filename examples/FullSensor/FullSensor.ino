@@ -12,13 +12,15 @@
 */
 #include <Sensor.h>
 #include <AnalogSensor.h>
-#include <MovingAverageSensor.h>
+#include <AverageSensor.h>
+#include <SmoothSensor.h>
 #include <MapSensor.h>
 #include <ConstrainSensor.h>
 
 #define ANALOG_PIN A1
 #define NUMBER_OF_READINGS 10
 #define DELAY_TIME 10
+#define SMOOTHING_FACTOR 5
 #define FROM_LOW 0
 #define FROM_HIGH 1023
 #define TO_LOW 100
@@ -33,9 +35,12 @@ void setup() {
   Serial.begin(9600);
   sensor = new ConstrainSensor(
     new MapSensor(
-      new MovingAverageSensor(
-        new AnalogSensor(ANALOG_PIN),
-        NUMBER_OF_READINGS, DELAY_TIME
+      new SmoothSensor(
+        new AverageSensor(
+          new AnalogSensor(ANALOG_PIN),
+          NUMBER_OF_READINGS, DELAY_TIME
+        ),
+        SMOOTHING_FACTOR
       ),
       FROM_LOW, FROM_HIGH, TO_LOW, TO_HIGH
     ),

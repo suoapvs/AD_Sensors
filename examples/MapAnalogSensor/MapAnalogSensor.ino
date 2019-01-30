@@ -19,21 +19,21 @@
 #define TO_LOW 0
 #define TO_HIGH 100
 
-Sensor* analogSensor = NULL;
+Sensor* origin = NULL;
 Sensor* mapSensor = NULL;
 
 // the setup function runs once when you press reset or power the board
 void setup() {
   Serial.begin(9600);
-  analogSensor = new AnalogSensor(ANALOG_PIN);
-  mapSensor = new MapSensor(analogSensor, FROM_LOW, FROM_HIGH, TO_LOW, TO_HIGH);
+  origin = new AnalogSensor(ANALOG_PIN);
+  mapSensor = new MapSensor(origin, FROM_LOW, FROM_HIGH, TO_LOW, TO_HIGH);
 }
 
 // the loop function runs over and over again forever
 void loop() {
   Serial.print("Original: ");
-  Serial.print(analogSensor->read());
-  Serial.print(" | Maped: ");
+  Serial.print(origin->read());
+  Serial.print(", Maped: ");
   Serial.println(mapSensor->read());
   delay(500);
 }

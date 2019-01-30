@@ -17,21 +17,21 @@
 #define LOW 0
 #define HIGH 100
 
-Sensor* analogSensor = NULL;
-Sensor* constrainSensor = NULL;
+Sensor* origin = NULL;
+Sensor* constrained = NULL;
 
 // the setup function runs once when you press reset or power the board
 void setup() {
   Serial.begin(9600);
-  analogSensor = new AnalogSensor(ANALOG_PIN);
-  constrainSensor = new ConstrainSensor(analogSensor, LOW, HIGH);
+  origin = new AnalogSensor(ANALOG_PIN);
+  constrained = new ConstrainSensor(origin, LOW, HIGH);
 }
 
 // the loop function runs over and over again forever
 void loop() {
-  Serial.print("Original: " + String(analogSensor->read()));
-  Serial.print(analogSensor->read());
-  Serial.print(" | Constrained: ");
-  Serial.println(constrainSensor->read());
+  Serial.print("Original: ");
+  Serial.print(origin->read());
+  Serial.print(", Constrained: ");
+  Serial.println(constrained->read());
   delay(500);
 }
