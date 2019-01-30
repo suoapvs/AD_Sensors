@@ -1,12 +1,12 @@
 /**
-	MovingAverageSensor.h - Reads a signal from a origin sensor,
-	averages (moving average, rolling average or running average)
+	SmoothSensor.h - Reads a signal from a origin sensor,
+	smoothes (moving average, rolling average or running average)
 	the signal and return it.
 	Wiki: https://en.wikipedia.org/wiki/Moving_average
 
 	Instantiation:
 		Sensor origin();
-		MovingAverageSensor sensor(origin, 5);
+		SmoothSensor sensor(origin, 5);
 
 	Read signal:
 		int value = sensor.read();
@@ -16,27 +16,27 @@
 	Created by Yurii Salimov, January, 2019.
 	Released into the public domain.
 */
-#ifndef MOVING_AVERAGE_SENSOR_H
-#define MOVING_AVERAGE_SENSOR_H
+#ifndef SMOOTH_SENSOR_H
+#define SMOOTH_SENSOR_H
 
 #include "Sensor.h"
 
-class MovingAverageSensor final : public Sensor {
+class SmoothSensor final : public Sensor {
 
 	private:
 		Sensor* origin;
-		int smoothingFactor;
+		int factor;
 		int data;
 
 	public:
 		/**
 			Constructor.
 			@param origin - the origin sensor;
-			@param smoothingFactor - smoothing factor of readings (0 = not smooth)
+			@param factor - smoothing factor of readings (0 = not smooth)
 		*/
-		MovingAverageSensor(Sensor* origin, int smoothingFactor);
+		SmoothSensor(Sensor* origin, int factor);
 
-		~MovingAverageSensor();
+		~SmoothSensor();
 
 		/**
 			Reads a signal from a origin sensor,
@@ -48,7 +48,7 @@ class MovingAverageSensor final : public Sensor {
 	private:
 		inline void init();
 
-		inline int movingAverage(int input);
+		inline int smoothe(int input);
 };
 
 #endif
