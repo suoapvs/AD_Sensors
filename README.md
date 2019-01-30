@@ -132,23 +132,23 @@ Sensor* sensor = new AverageSensor(origin, COUNTER, DELAY_TIME);
 int value = sensor->read();
 ```
 
-### [Moving Average Sensor](/src/MovingAverageSensor.h)
+### [SmoothSensor](/src/SmoothSensor.h)
 
 Reads a signal from a origin sensor,
-averages (moving average, rolling average or running average)
+smoothes (moving average, rolling average or running average)
 the signal and return it.
 
 ```cpp
 #include <Sensor.h>
 #include <AnalogSensor.h>
-#include <MovingAverageSensor.h>
+#include <SmoothSensor.h>
 
 Sensor* origin = new AnalogSensor(ANALOG_PIN);
 
 /**
     SMOOTHING_FACTOR - smoothing factor of readings (0 = not smooth).
 */
-Sensor* sensor = new MovingAverageSensor(origin, SMOOTHING_FACTOR);
+Sensor* sensor = new SmoothSensor(origin, SMOOTHING_FACTOR);
 
 /**
     Return the average signal value.
