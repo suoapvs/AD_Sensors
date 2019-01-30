@@ -23,9 +23,6 @@
 class DigitalSensor final : public Sensor {
 
 	private:
-		/**
-			Port number that is attached to the sensor.
-		*/
 		int pin;
 
 		/**
@@ -41,14 +38,14 @@ class DigitalSensor final : public Sensor {
 		/**
 			Constructor.
 			@param pin - a digital port number
-				that is attached to the sensor.
+			that is attached to the sensor.
 		*/
 		DigitalSensor(int pin);
 
 		/**
 			Constructor.
 			@param pin - a digital port number
-				that is attached to the sensor.
+			that is attached to the sensor.
 			@param invert - invert sensor signal.
 		*/
 		DigitalSensor(int pin, boolean invert);
@@ -56,6 +53,7 @@ class DigitalSensor final : public Sensor {
 		/**
 			Reads and return a signal from the digital sensor,
 			from a digital port.
+			@return (0 or 1, 0 == LOW, 1 == HIGH)
 		*/
 		int read() override;
 
@@ -80,12 +78,6 @@ class DigitalSensor final : public Sensor {
 			@param invert - invert sensor signal.
 		*/
 		void invertSignal(boolean invert);
-
-	private:
-		/**
-			Initialization of module.
-		*/
-		inline void init();
 };
 
 #endif

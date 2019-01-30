@@ -21,9 +21,6 @@
 class AnalogSensor final : public Sensor {
 
 	private:
-		/**
-			Port number that is attached to the sensor.
-		*/
 		int pin;
 
 	public:
@@ -40,12 +37,6 @@ class AnalogSensor final : public Sensor {
 			@return the analog sensor signal.
 		*/
 		int read() override;
-
-	private:
-		/**
-			Initialization of module.
-		*/
-		inline void init();
 };
 
 #endif
