@@ -16,7 +16,6 @@
 #include <ConstrainSensor.h>
 
 #define ANALOG_PIN A1
-
 #define FROM_LOW 100
 #define FROM_HIGH 900
 #define TO_LOW 0
@@ -38,8 +37,11 @@ void setup() {
 
 // the loop function runs over and over again forever
 void loop() {
-  Serial.print("Original: " + String(analogSensor->read()));
-  Serial.print(" | Maped: " + String(mapSensor->read()));
-  Serial.println(" | Constrained: " + String(sensor->read()));
+  Serial.print("Original: ");
+  Serial.print(analogSensor->read());
+  Serial.print(" | Maped: ");
+  Serial.print(mapSensor->read());
+  Serial.print(" | Constrained: ");
+  Serial.println(constrainSensor->read());
   delay(500);
 }

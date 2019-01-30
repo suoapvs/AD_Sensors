@@ -11,26 +11,25 @@
 */
 #include <Sensor.h>
 #include <AnalogSensor.h>
-#include <AverageSensor.h>
+#include <MovingAverageSensor.h>
 
 #define ANALOG_PIN A1
-#define NUMBER_OF_READINGS 10
-#define DELAY_TIME 10
+#define SMOOTHING_FACTOR 5
 
 Sensor* sensor = NULL;
 
 // the setup function runs once when you press reset or power the board
 void setup() {
   Serial.begin(9600);
-  sensor = new AverageSensor(
+  sensor = new MovingAverageSensor(
     new AnalogSensor(ANALOG_PIN),
-    NUMBER_OF_READINGS,
-    DELAY_TIME
+    SMOOTHING_FACTOR
   );
 }
 
 // the loop function runs over and over again forever
 void loop() {
-  Serial.println("Averaged: " + String(sensor->read()));
+  Serial.print("Averaged: ");
+  Serial.println(sensor->read());
   delay(500);
 }

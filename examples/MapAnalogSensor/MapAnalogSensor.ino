@@ -10,11 +10,10 @@
   Released into the public domain.
 */
 #include <Sensor.h>
-#include <MapSensor.h>
 #include <AnalogSensor.h>
+#include <MapSensor.h>
 
 #define ANALOG_PIN A1
-
 #define FROM_LOW 0
 #define FROM_HIGH 1023
 #define TO_LOW 0
@@ -32,7 +31,9 @@ void setup() {
 
 // the loop function runs over and over again forever
 void loop() {
-  Serial.print("Original: " + String(analogSensor->read()));
-  Serial.println(" | Maped: " + String(mapSensor->read()));
+  Serial.print("Original: ");
+  Serial.print(analogSensor->read());
+  Serial.print(" | Maped: ");
+  Serial.println(mapSensor->read());
   delay(500);
 }

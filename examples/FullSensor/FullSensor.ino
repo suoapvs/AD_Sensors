@@ -12,12 +12,11 @@
 */
 #include <Sensor.h>
 #include <AnalogSensor.h>
-#include <AverageSensor.h>
+#include <MovingAverageSensor.h>
 #include <MapSensor.h>
 #include <ConstrainSensor.h>
 
 #define ANALOG_PIN A1
-
 #define NUMBER_OF_READINGS 10
 #define DELAY_TIME 10
 #define FROM_LOW 0
@@ -34,7 +33,7 @@ void setup() {
   Serial.begin(9600);
   sensor = new ConstrainSensor(
     new MapSensor(
-      new AverageSensor(
+      new MovingAverageSensor(
         new AnalogSensor(ANALOG_PIN),
         NUMBER_OF_READINGS, DELAY_TIME
       ),
@@ -46,6 +45,7 @@ void setup() {
 
 // the loop function runs over and over again forever
 void loop() {
-  Serial.println("Sensor: " + String(sensor->read()));
+  Serial.print("Sensor: ");
+  Serial.println(sensor->read());
   delay(500);
 }

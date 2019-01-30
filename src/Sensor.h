@@ -17,16 +17,12 @@
 
 class Sensor {
 
-	protected:
-		Sensor() {}
-
 	public:
-		virtual ~Sensor() {}
-
 		/**
 			Reads and return a signal from a sensor.
+			@return the sensor signal.
 		*/
-		virtual int read() {}
+		virtual int read() = 0;
 };
 
 #endif

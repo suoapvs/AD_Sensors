@@ -25,6 +25,7 @@ void setup() {
 // the loop function runs over and over again forever
 void loop() {
   const String signal = sensor->isHigh() ? "HIGH" : "LOW";
-  Serial.println("Digital Sensor: " + signal);
+  Serial.print("Digital Sensor: ");
+  Serial.println(signal);
   delay(500);
 }

@@ -10,11 +10,10 @@
   Released into the public domain.
 */
 #include <Sensor.h>
-#include <ConstrainSensor.h>
 #include <AnalogSensor.h>
+#include <ConstrainSensor.h>
 
 #define ANALOG_PIN A1
-
 #define LOW 0
 #define HIGH 100
 
@@ -25,12 +24,14 @@ Sensor* constrainSensor = NULL;
 void setup() {
   Serial.begin(9600);
   analogSensor = new AnalogSensor(ANALOG_PIN);
-  constrainSensor = new ConstrainSensor(mapSensor, MIN, MAX);
+  constrainSensor = new ConstrainSensor(analogSensor, LOW, HIGH);
 }
 
 // the loop function runs over and over again forever
 void loop() {
   Serial.print("Original: " + String(analogSensor->read()));
-  Serial.println(" | Constrained: " + String(constrainSensor->read()));
+  Serial.print(analogSensor->read());
+  Serial.print(" | Constrained: ");
+  Serial.println(constrainSensor->read());
   delay(500);
 }

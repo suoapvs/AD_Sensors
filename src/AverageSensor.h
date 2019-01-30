@@ -1,10 +1,10 @@
 /**
-	AverageSensor.h - Reads a signal from a delegated sensor,
+	AverageSensor.h - Reads a signal from a origin sensor,
 	averages the signal and return it.
 
 	Instantiation:
-	  Sensor otherSensor();
-		AverageSensor sensor(otherSensor, 0, 100);
+		Sensor origin();
+		AverageSensor sensor(origin, 0, 100);
 
 	Read signal:
 		int value = sensor.read();
@@ -31,21 +31,19 @@ class AverageSensor final : public Sensor {
 
 	public:
 		/**
-		  Constructor.
-		  @param counter - number of readings;
-		  @param delayTime - delay time between readings.
+			Constructor.
+			@param origin - the origin sensor;
+			@param counter - number of readings;
+			@param delayTime - delay time between readings.
 		*/
-		AverageSensor(
-			Sensor* origin,
-			int counter,
-			int delayTime
-		);
+		AverageSensor(Sensor* origin, int counter, int delayTime);
 
-		~AverageSensor() override;
+		~AverageSensor();
 
 		/**
-		  Reads a signal from a delegated sensor,
-		  averages the signal and return it.
+			Reads a signal from the origin sensor,
+			averages the signal and return it.
+			@return the average signal value.
 		*/
 		int read() override;
 
