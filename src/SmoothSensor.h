@@ -46,8 +46,6 @@ class SmoothSensor final : public Sensor {
 		int read() override;
 
 	private:
-		inline void init();
-
 		inline int smoothe(int input);
 };
 

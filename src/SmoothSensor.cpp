@@ -6,11 +6,6 @@ SmoothSensor::SmoothSensor(
 ) {
   this->origin = origin;
   this->factor = factor;
-  init();
-}
-
-inline void SmoothSensor::init() {
-  this->data = this->origin->read();
 }
 
 SmoothSensor::~SmoothSensor() {
@@ -22,10 +17,7 @@ int SmoothSensor::read() {
 }
 
 inline int SmoothSensor::smoothe(const int input) {
-  if (this->factor > 0) {
-    this->data = (this->data * (this->factor - 1) + input) / this->factor;
-  } else {
-    this->data = input;
-  }
-  return this->data;
+  return this->data = (this->factor > 1) && (this->data != 0) ?
+    (this->data * (this->factor - 1) + input) / this->factor :
+    input;
 }
