@@ -22,6 +22,7 @@ Sensor* smoothed = NULL;
 // the setup function runs once when you press reset or power the board
 void setup() {
   Serial.begin(9600);
+
   origin = new AnalogSensor(ANALOG_PIN);
   smoothed = new SmoothSensor(origin, SMOOTHING_FACTOR);
 }
@@ -32,5 +33,6 @@ void loop() {
   Serial.print(origin->read());
   Serial.print(", Smoothed : ");
   Serial.println(smoothed->read());
-  delay(500);
+
+  delay(500); // optionally, only to delay the output of information in the example
 }

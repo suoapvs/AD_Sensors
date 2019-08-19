@@ -30,6 +30,7 @@ Sensor* constrainSensor = NULL;
 // the setup function runs once when you press reset or power the board
 void setup() {
   Serial.begin(9600);
+
   analogSensor = new AnalogSensor(ANALOG_PIN);
   mapSensor = new MapSensor(analogSensor, FROM_LOW, FROM_HIGH, TO_LOW, TO_HIGH);
   constrainSensor = new ConstrainSensor(mapSensor, MIN, MAX);
@@ -39,9 +40,10 @@ void setup() {
 void loop() {
   Serial.print("Original: ");
   Serial.print(analogSensor->read());
-  Serial.print(" | Maped: ");
+  Serial.print(", Maped: ");
   Serial.print(mapSensor->read());
-  Serial.print(" | Constrained: ");
+  Serial.print(", Constrained: ");
   Serial.println(constrainSensor->read());
-  delay(500);
+
+  delay(500); // optionally, only to delay the output of information in the example
 }

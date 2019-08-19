@@ -23,6 +23,7 @@ Sensor* averaged = NULL;
 // the setup function runs once when you press reset or power the board
 void setup() {
   Serial.begin(9600);
+
   origin = new AnalogSensor(ANALOG_PIN);
   averaged = new AverageSensor(
     origin,
@@ -33,9 +34,10 @@ void setup() {
 
 // the loop function runs over and over again forever
 void loop() {
-  Serial.println("Origin: ");
-  Serial.println(origin->read());
-  Serial.println(", Averaged: ");
+  Serial.print("Origin: ");
+  Serial.print(origin->read());
+  Serial.print(", Averaged: ");
   Serial.println(averaged->read());
-  delay(500);
+
+  delay(500); // optionally, only to delay the output of information in the example
 }

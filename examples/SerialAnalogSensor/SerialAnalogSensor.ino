@@ -13,11 +13,12 @@
 
 #define ANALOG_PIN A1
 
-AnalogSensor* sensor = NULL;
+Sensor* sensor = NULL;
 
 // the setup function runs once when you press reset or power the board
 void setup() {
   Serial.begin(9600);
+
   sensor = new AnalogSensor(ANALOG_PIN);
 }
 
@@ -25,5 +26,6 @@ void setup() {
 void loop() {
   Serial.print("Analog Sensor: ");
   Serial.println(sensor->read());
-  delay(500);
+
+  delay(500); // optionally, only to delay the output of information in the example
 }

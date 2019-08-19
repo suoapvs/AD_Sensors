@@ -25,6 +25,7 @@ Sensor* mapSensor = NULL;
 // the setup function runs once when you press reset or power the board
 void setup() {
   Serial.begin(9600);
+
   origin = new AnalogSensor(ANALOG_PIN);
   mapSensor = new MapSensor(origin, FROM_LOW, FROM_HIGH, TO_LOW, TO_HIGH);
 }
@@ -35,5 +36,6 @@ void loop() {
   Serial.print(origin->read());
   Serial.print(", Maped: ");
   Serial.println(mapSensor->read());
-  delay(500);
+
+  delay(500); // optionally, only to delay the output of information in the example
 }

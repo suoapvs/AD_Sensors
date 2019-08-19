@@ -13,7 +13,7 @@
 
 #define DIGITAL_PIN 1
 
-DigitalSensor* sensor = NULL;
+Sensor* sensor = NULL;
 
 // the setup function runs once when you press reset or power the board
 void setup() {
@@ -25,5 +25,5 @@ void setup() {
 void loop() {
   Serial.print("Digital Sensor: ");
   Serial.println(sensor->isHigh() ? "HIGH" : "LOW");
-  delay(500);
+  delay(500); // optionally, only to delay the output of information in the example
 }

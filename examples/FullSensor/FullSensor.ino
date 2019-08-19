@@ -52,5 +52,6 @@ void setup() {
 void loop() {
   Serial.print("Sensor: ");
   Serial.println(sensor->read());
-  delay(500);
+
+  delay(500); // optionally, only to delay the output of information in the example
 }
