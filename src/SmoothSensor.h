@@ -1,15 +1,23 @@
 /**
-	SmoothSensor.h - Reads a signal from a origin sensor,
-	smoothes (moving average, rolling average or running average)
-	the signal and return it.
+	SmoothSensor - class-wrapper allows to smoothe
+	a signal value of origin Sensor instance.
 	Wiki: https://en.wikipedia.org/wiki/Moving_average
 
 	Instantiation:
-		Sensor origin();
-		SmoothSensor sensor(origin, 5);
+	Sensor* smoothSensor = new SmoothSensor(SENSOR, SMOOTHING_FACTOR);
+
+	Where,
+	SENSOR - origin Sensor instance.
+	SMOOTHING_FACTOR - smoothing factor of readings.
 
 	Read signal:
-		int value = sensor.read();
+	int value = smoothSensor->read();
+
+  v.1.3.3
+	- optimized smoothe(*) method;
+	- renamed default constants;
+	- added default value of constructor parameters;
+	- updated documentation.
 
 	https://github.com/YuriiSalimov/AD_Sensors
 
@@ -21,32 +29,60 @@
 
 #include "Sensor.h"
 
+// Minimum smoothing factor.
+#define AD_MIN_SMOOTHING_FACTOR 2
+
 class SmoothSensor final : public Sensor {
 
-	private:
-		Sensor* origin;
-		int factor;
-		int data;
+  private:
+    Sensor* origin;
+    int smoothingFactor;
+    int data;
 
-	public:
-		/**
-			Constructor.
-			@param origin - the origin sensor;
-			@param factor - smoothing factor of readings (0 = not smooth)
-		*/
-		SmoothSensor(Sensor* origin, int factor);
+  public:
+    /**
+      Constructor
 
-		~SmoothSensor();
+      @param origin - the origin sensor (not NULL)
+      @param smoothingFactor - smoothing factor of readings (default, 2)
+    */
+    SmoothSensor(
+      Sensor* origin,
+      int smoothingFactor = AD_MIN_SMOOTHING_FACTOR
+    );
 
-		/**
-			Reads a signal from a origin sensor,
-			averages the signal and return it.
-			@return the average signal value.
-		*/
-		int read() override;
+    /**
+      Destructor
+      Deletes the origin Sensor instance.
+    */
+    ~SmoothSensor();
 
-	private:
-		inline int smoothe(int input);
+    /**
+      Reads a signal from a origin sensor,
+      averages the signal and return it.
+
+      @return the average signal value.
+    */
+    int read() override;
+
+  private:
+    /**
+      Perform smoothing of the input value.
+
+      @param input - the value to smooth
+      @return smoothed value or the input value
+      if the data is 0.
+    */
+    inline double smoothe(double input);
+
+    /**
+      Sets the smoothing factor.
+      If the input value is less than NTC_MIN_SMOOTHING_FACTOR,
+      then sets NTC_MIN_SMOOTHING_FACTOR.
+
+      @param smoothingFactor - new smoothing factor
+    */
+    inline void setSmoothingFactor(int smoothingFactor);
 };
 
 #endif

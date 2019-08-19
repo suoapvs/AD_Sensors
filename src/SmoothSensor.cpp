@@ -1,11 +1,15 @@
+/**
+  Created by Yurii Salimov, January, 2019.
+  Released into the public domain.
+*/
 #include "SmoothSensor.h"
 
 SmoothSensor::SmoothSensor(
   Sensor* origin,
-  const int factor
+  const int smoothingFactor
 ) {
   this->origin = origin;
-  this->factor = factor;
+  setSmoothingFactor(smoothingFactor);
 }
 
 SmoothSensor::~SmoothSensor() {
@@ -17,7 +21,16 @@ int SmoothSensor::read() {
 }
 
 inline int SmoothSensor::smoothe(const int input) {
-  return this->data = (this->factor > 1) && (this->data != 0) ?
-    (this->data * (this->factor - 1) + input) / this->factor :
-    input;
+  return (this->data =
+    (this->data == 0) ? input :
+    ((this->data * (this->smoothingFactor - 1) + input) / this->smoothingFactor)
+  );
+}
+
+/*
+  See about the max(*) function:
+  https://www.arduino.cc/reference/en/language/functions/math/max/
+*/
+inline void SmoothSensor::setSmoothingFactor(const int smoothingFactor) {
+  this->smoothingFactor = max(smoothingFactor, AD_MIN_SMOOTHING_FACTOR);
 }
