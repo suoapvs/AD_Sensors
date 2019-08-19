@@ -1,7 +1,11 @@
 /**
-	Sensor.h - Abstract class.
+	Sensor - interface describes a set of methods
+	for working with analog and digital sensors.
 
 	https://github.com/YuriiSalimov/AD_Sensors
+
+	v.1.3.3
+	- updated documentation
 
 	Created by Yurii Salimov, May, 2018.
 	Released into the public domain.
@@ -20,7 +24,8 @@ class Sensor {
 	public:
 		/**
 			Reads and return a signal from a sensor.
-			@return the sensor signal.
+
+			@return the sensor signal
 		*/
 		virtual int read() = 0;
 };
