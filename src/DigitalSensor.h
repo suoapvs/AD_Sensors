@@ -1,14 +1,17 @@
 /**
-	DigitalSensor.h - The library describes
+	DigitalSensor - class describes
 	a set of methods for working with a digital sensor.
 
 	Instantiation:
-		DigitalSensor sensor(2);
+	Sensor* digitalSensor = new DigitalSensor(2);
 
 	Read signal:
-		int value = sensor.read();
-		boolean value = sensor.isHigh();
-		boolean value = sensor.isLow();
+	int value = digitalSensor->read();
+	boolean value = digitalSensor->isHigh();
+	boolean value = digitalSensor->isLow();
+
+	v.1.3.3
+  - updated documentation
 
 	https://github.com/YuriiSalimov/AD_Sensors
 
@@ -20,6 +23,8 @@
 
 #include "Sensor.h"
 
+#define AD_DEFAULT_INVERT_SIGNAL false
+
 class DigitalSensor final : public Sensor {
 
 	private:
@@ -27,55 +32,54 @@ class DigitalSensor final : public Sensor {
 
 		/**
 			Actuation signal.
-			If invert signal:
-				signal = LOW
-			If not invert signal:
-				signal = HIGH
+			If invert signal: signal = LOW
+			If not invert signal: signal = HIGH
 		*/
 		int signal;
 
 	public:
 		/**
-			Constructor.
-			@param pin - a digital port number
-			that is attached to the sensor.
-		*/
-		DigitalSensor(int pin);
+			Constructor
 
-		/**
-			Constructor.
 			@param pin - a digital port number
-			that is attached to the sensor.
-			@param invert - invert sensor signal.
+			that is attached to the sensor
+			@param invert - invert sensor signal (default, false)
 		*/
-		DigitalSensor(int pin, boolean invert);
+		DigitalSensor(
+			int pin,
+			boolean invert = AD_DEFAULT_INVERT_SIGNAL
+		);
 
 		/**
 			Reads and return a signal from the digital sensor,
 			from a digital port.
-			@return (0 or 1, 0 == LOW, 1 == HIGH)
+
+			@return 0 or 1 (0 == LOW, 1 == HIGH)
 		*/
 		int read() override;
 
 		/**
 			Checks a signal on the digital sensor,
 			on the digital port.
+
 			@return true if the sensor signal is high,
-			false - otherwise.
+			false - otherwise
 		*/
 		boolean isHigh();
 
 		/**
 			Checks a signal on the digital sensor,
 			on the digital port.
+
 			@return true if the sensor signal is low,
-			false - otherwise.
+			false - otherwise
 		*/
 		boolean isLow();
 
 		/**
 			Inverts sensor signal.
-			@param invert - invert sensor signal.
+
+			@param invert - invert sensor signal
 		*/
 		void invertSignal(boolean invert);
 };

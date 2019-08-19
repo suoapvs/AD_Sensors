@@ -1,12 +1,15 @@
 /**
-	AnalogSensor.h - The library describes
+	AnalogSensor - class describes
 	a set of methods for working with an analog sensor.
 
 	Instantiation:
-		AnalogSensor sensor(A1);
+	Sensor* analogSensor = new AnalogSensor(A1);
 
 	Read signal:
-		int value = sensor.read();
+	int value = sensor->read();
+
+	v.1.3.3
+	- updated documentation
 
 	https://github.com/YuriiSalimov/AD_Sensors
 
@@ -20,23 +23,25 @@
 
 class AnalogSensor final : public Sensor {
 
-	private:
-		int pin;
+  private:
+    int pin;
 
-	public:
-		/**
-			Constructor.
-			@param pin - an analog port number
-			that is attached to the sensor.
-		*/
-		AnalogSensor(int pin);
+  public:
+    /**
+      Constructor
 
-		/**
-			Reads and return a signal from the analog sensor,
-			from an analog port.
-			@return the analog sensor signal.
-		*/
-		int read() override;
+      @param pin - an analog port number
+      that is attached to the sensor
+    */
+    AnalogSensor(int pin);
+
+    /**
+      Reads and return a signal from the analog sensor,
+      from an analog port.
+
+      @return the analog sensor signal.
+    */
+    int read() override;
 };
 
 #endif

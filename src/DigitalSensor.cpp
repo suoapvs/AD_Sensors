@@ -1,8 +1,8 @@
+/**
+Created by Yurii Salimov, May, 2018.
+Released into the public domain.
+*/
 #include "DigitalSensor.h"
-
-DigitalSensor::DigitalSensor(const int pin)
-  : DigitalSensor::DigitalSensor(pin, false){
-}
 
 DigitalSensor::DigitalSensor(const int pin, const boolean invert) {
   pinMode(this->pin = pin, INPUT_PULLUP);
