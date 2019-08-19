@@ -73,7 +73,7 @@ class SmoothSensor final : public Sensor {
       @return smoothed value or the input value
       if the data is 0.
     */
-    inline double smoothe(double input);
+    inline int smoothe(int input);
 
     /**
       Sets the smoothing factor.

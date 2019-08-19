@@ -23,7 +23,7 @@ int SmoothSensor::read() {
 inline int SmoothSensor::smoothe(const int input) {
   return (this->data =
     (this->data == 0) ? input :
-    ((this->data * (this->smoothingFactor - 1) + input) / this->smoothingFactor)
+    (double(this->data * (this->smoothingFactor - 1) + input) / this->smoothingFactor)
   );
 }
 
