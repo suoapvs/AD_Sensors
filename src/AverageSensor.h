@@ -1,13 +1,31 @@
 /**
-	AverageSensor.h - Reads a signal from a origin sensor,
-	averages the signal and return it.
+	AverageSensor - class-wrapper allows to average
+  a signal value of origin Sensor instance.
 
 	Instantiation:
-		Sensor origin();
-		AverageSensor sensor(origin, 0, 100);
+	Sensor* averageSensor = new AverageSensor(
+	 SENSOR, READINGS_NUMBER, DELAY_TIME
+	);
+
+	Where,
+	SENSOR - origin Sensor instance.
+
+	READINGS_NUMBER - How many readings are taken
+	to determine a mean signal. The more values,
+	the longer a calibration is performed, but the readings
+	will be more accurate.
+
+	DELAY_TIME - Delay time between a signal readings
+	from the sensor (ms).
 
 	Read signal:
-		int value = sensor.read();
+	int value = averageSensor->read();
+
+	v.1.3.3
+	- optimized average(*) method;
+	- renamed default constants;
+	- added default value of constructor parameters;
+	- updated documentation.
 
 	https://github.com/YuriiSalimov/AD_Sensors
 
@@ -19,36 +37,62 @@
 
 #include "Sensor.h"
 
-#define AVERAGE_SENSOR_MIN_COUNTER 1
-#define AVERAGE_SENSOR_MIN_TIME_DELAY 1
+// Default number of average readings.
+#define AD_DEFAULT_AVERAGE_READINGS_NUMBER 1
+// Default delay time of average readings.
+#define AD_DEFAULT_AVERAGE_DELAY_TIME 1
 
 class AverageSensor final : public Sensor {
 
-	private:
-		Sensor* origin;
-		int counter;
-		int delayTime;
+  private:
+    Sensor* origin;
+    int readingsNumber;
+    int delayTime;
 
-	public:
-		/**
-			Constructor.
-			@param origin - the origin sensor;
-			@param counter - number of readings;
-			@param delayTime - delay time between readings.
-		*/
-		AverageSensor(Sensor* origin, int counter, int delayTime);
+  public:
+    /**
+      Constructor
 
-		~AverageSensor();
+      @param origin - the origin sensor (not NULL)
+      @param readingsNumber - number of readings (default, 1)
+      @param delayTime - delay time between readings (default, 1)
+    */
+    AverageSensor(
+      Sensor* origin,
+      int readingsNumber = AD_DEFAULT_AVERAGE_READINGS_NUMBER,
+      int delayTime = AD_DEFAULT_AVERAGE_DELAY_TIME
+    );
 
-		/**
-			Reads a signal from the origin sensor,
-			averages the signal and return it.
-			@return the average signal value.
-		*/
-		int read() override;
+    /**
+      Destructor
+      Deletes the origin Sensor instance.
+    */
+    ~AverageSensor();
 
-	private:
-		inline void sleep();
+    /**
+      Reads a signal from the origin sensor,
+      averages the signal and return it.
+
+      @return the average signal value.
+    */
+    int read() override;
+
+  private:
+    /**
+      For delay between readings.
+    */
+    inline void sleep();
+
+    /**
+      Validates the input data.
+
+      @param data - value to validate
+      @param alternative - alternative value to return
+      @returns the data if it is valid (> 0),
+      otherwise returns alternative data.
+    */
+    template <typename A, typename B>
+    inline A validate(A data, B alternative);
 };
 
 #endif
