@@ -20,7 +20,7 @@ MapSensor::~MapSensor() {
   delete this->origin;
 }
 
-/*
+/**
   See about the map(*) function:
   https://www.arduino.cc/reference/en/language/functions/math/map/
 */

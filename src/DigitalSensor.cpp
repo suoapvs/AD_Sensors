@@ -1,6 +1,6 @@
 /**
-Created by Yurii Salimov, May, 2018.
-Released into the public domain.
+  Created by Yurii Salimov, May, 2018.
+  Released into the public domain.
 */
 #include "DigitalSensor.h"
 

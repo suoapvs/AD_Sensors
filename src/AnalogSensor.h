@@ -1,20 +1,20 @@
 /**
-	AnalogSensor - class describes
-	a set of methods for working with an analog sensor.
+  AnalogSensor - class describes
+  a set of methods for working with an analog sensor.
 
-	Instantiation:
-	Sensor* analogSensor = new AnalogSensor(A1);
+  Instantiation:
+  Sensor* analogSensor = new AnalogSensor(A1);
 
-	Read signal:
-	int value = sensor->read();
+  Read signal:
+  int value = sensor->read();
 
-	v.1.3.3
-	- updated documentation
+  v.1.3.3
+  - updated documentation
 
-	https://github.com/YuriiSalimov/AD_Sensors
+  https://github.com/YuriiSalimov/AD_Sensors
 
-	Created by Yurii Salimov, May, 2018.
-	Released into the public domain.
+  Created by Yurii Salimov, May, 2018.
+  Released into the public domain.
 */
 #ifndef ANALOG_SENSOR_H
 #define ANALOG_SENSOR_H

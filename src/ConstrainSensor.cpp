@@ -18,9 +18,9 @@ ConstrainSensor::~ConstrainSensor() {
   delete this->origin;
 }
 
-/*
-See about the constrain(*) function:
-https://www.arduino.cc/reference/en/language/functions/math/constrain/
+/**
+  See about the constrain(*) function:
+  https://www.arduino.cc/reference/en/language/functions/math/constrain/
 */
 int ConstrainSensor::read() {
   const int originValue = this->origin->read();
