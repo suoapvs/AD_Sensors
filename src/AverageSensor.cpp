@@ -10,8 +10,8 @@ AverageSensor::AverageSensor(
 	const int delayTime
 ) {
 	this->origin = origin;
-	this->readingsNumber = validate(readingsNumber, AD_DEFAULT_AVERAGE_READINGS_NUMBER);
-	this->delayTime = validate(delayTime, AD_DEFAULT_AVERAGE_DELAY_TIME);
+	this->readingsNumber = validate(readingsNumber, DEFAULT_READINGS_NUMBER);
+	this->delayTime = validate(delayTime, DEFAULT_DELAY_TIME);
 }
 
 AverageSensor::~AverageSensor() {
@@ -19,7 +19,7 @@ AverageSensor::~AverageSensor() {
 }
 
 int AverageSensor::read() {
-	long sum = 0;
+	int sum = 0;
 	for (int i = 0; i < this->readingsNumber; ++i) {
 		sum += this->origin->read();
 		sleep();

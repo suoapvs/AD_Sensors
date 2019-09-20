@@ -27,10 +27,10 @@ inline int SmoothSensor::smoothe(const int input) {
   );
 }
 
-/*
+/**
   See about the max(*) function:
   https://www.arduino.cc/reference/en/language/functions/math/max/
 */
 inline void SmoothSensor::setSmoothingFactor(const int smoothingFactor) {
-  this->smoothingFactor = max(smoothingFactor, AD_MIN_SMOOTHING_FACTOR);
+  this->smoothingFactor = max(smoothingFactor, MIN_SMOOTHING_FACTOR);
 }

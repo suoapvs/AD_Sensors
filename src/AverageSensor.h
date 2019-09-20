@@ -1,50 +1,53 @@
 /**
-	AverageSensor - class-wrapper allows to average
+  AverageSensor - class-wrapper allows to average
   a signal value of origin Sensor instance.
 
-	Instantiation:
-	Sensor* averageSensor = new AverageSensor(
-	 SENSOR, READINGS_NUMBER, DELAY_TIME
-	);
+  Instantiation:
+  Sensor* averageSensor = new AverageSensor(
+    SENSOR, READINGS_NUMBER, DELAY_TIME
+  );
 
-	Where,
-	SENSOR - origin Sensor instance.
+  Where,
+  SENSOR - origin Sensor instance.
 
-	READINGS_NUMBER - How many readings are taken
-	to determine a mean signal. The more values,
-	the longer a calibration is performed, but the readings
-	will be more accurate.
+  READINGS_NUMBER - How many readings are taken
+  to determine a mean signal. The more values,
+  the longer a calibration is performed, but the readings
+  will be more accurate.
 
-	DELAY_TIME - Delay time between a signal readings
-	from the sensor (ms).
+  DELAY_TIME - Delay time between a signal readings
+  from the sensor (ms).
 
-	Read signal:
-	int value = averageSensor->read();
+  Read signal:
+  int value = averageSensor->read();
 
-	v.1.3.3
-	- optimized average(*) method;
-	- renamed default constants;
-	- added default value of constructor parameters;
-	- updated documentation.
+  v.1.3.3
+  - optimized average(*) method;
+  - renamed default constants;
+  - added default value of constructor parameters;
+  - updated documentation.
 
-	https://github.com/YuriiSalimov/AD_Sensors
+  v.1.3.4
+  Replaced "define" constants with "static const".
 
-	Created by Yurii Salimov, May, 2018.
-	Released into the public domain.
+  https://github.com/YuriiSalimov/AD_Sensors
+
+  Created by Yurii Salimov, May, 2018.
+  Released into the public domain.
 */
 #ifndef AVERAGE_SENSOR_H
 #define AVERAGE_SENSOR_H
 
 #include "Sensor.h"
 
-// Default number of average readings.
-#define AD_DEFAULT_AVERAGE_READINGS_NUMBER 1
-// Default delay time of average readings.
-#define AD_DEFAULT_AVERAGE_DELAY_TIME 1
-
 class AverageSensor final : public Sensor {
 
   private:
+    // Default number of average readings.
+    static const int DEFAULT_READINGS_NUMBER = 1;
+    // Default delay time of average readings.
+    static const int DEFAULT_DELAY_TIME = 1;
+
     Sensor* origin;
     int readingsNumber;
     int delayTime;
@@ -59,8 +62,8 @@ class AverageSensor final : public Sensor {
     */
     AverageSensor(
       Sensor* origin,
-      int readingsNumber = AD_DEFAULT_AVERAGE_READINGS_NUMBER,
-      int delayTime = AD_DEFAULT_AVERAGE_DELAY_TIME
+      int readingsNumber = DEFAULT_READINGS_NUMBER,
+      int delayTime = DEFAULT_DELAY_TIME
     );
 
     /**

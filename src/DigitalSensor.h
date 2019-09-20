@@ -11,7 +11,10 @@
 	boolean value = digitalSensor->isLow();
 
 	v.1.3.3
-  - updated documentation
+	Updated documentation.
+
+	v.1.3.4
+	Replaced "define" constants with "static const".
 
 	https://github.com/YuriiSalimov/AD_Sensors
 
@@ -23,17 +26,17 @@
 
 #include "Sensor.h"
 
-#define AD_DEFAULT_INVERT_SIGNAL false
-
 class DigitalSensor final : public Sensor {
 
 	private:
+		static const boolean DEFAULT_INVERT_SIGNAL = false;
+
 		int pin;
 
 		/**
-			Actuation signal.
-			If invert signal: signal = LOW
-			If not invert signal: signal = HIGH
+		Actuation signal.
+		If invert signal: signal = LOW
+		If not invert signal: signal = HIGH
 		*/
 		int signal;
 
@@ -47,7 +50,7 @@ class DigitalSensor final : public Sensor {
 		*/
 		DigitalSensor(
 			int pin,
-			boolean invert = AD_DEFAULT_INVERT_SIGNAL
+			boolean invert = DEFAULT_INVERT_SIGNAL
 		);
 
 		/**

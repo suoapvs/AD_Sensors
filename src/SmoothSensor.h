@@ -1,40 +1,43 @@
 /**
-	SmoothSensor - class-wrapper allows to smoothe
-	a signal value of origin Sensor instance.
-	Wiki: https://en.wikipedia.org/wiki/Moving_average
+  SmoothSensor - class-wrapper allows to smoothe
+  a signal value of origin Sensor instance.
+  Wiki: https://en.wikipedia.org/wiki/Moving_average
 
-	Instantiation:
-	Sensor* smoothSensor = new SmoothSensor(SENSOR, SMOOTHING_FACTOR);
+  Instantiation:
+  Sensor* smoothSensor = new SmoothSensor(SENSOR, SMOOTHING_FACTOR);
 
-	Where,
-	SENSOR - origin Sensor instance.
-	SMOOTHING_FACTOR - smoothing factor of readings.
+  Where,
+  SENSOR - origin Sensor instance.
+  SMOOTHING_FACTOR - smoothing factor of readings.
 
-	Read signal:
-	int value = smoothSensor->read();
+  Read signal:
+  int value = smoothSensor->read();
 
   v.1.3.3
-	- optimized smoothe(*) method;
-	- renamed default constants;
-	- added default value of constructor parameters;
-	- updated documentation.
+  - optimized smoothe(*) method;
+  - renamed default constants;
+  - added default value of constructor parameters;
+  - updated documentation.
 
-	https://github.com/YuriiSalimov/AD_Sensors
+  v.1.3.4
+  Replaced "define" constants with "static const".
 
-	Created by Yurii Salimov, January, 2019.
-	Released into the public domain.
+  https://github.com/YuriiSalimov/AD_Sensors
+
+  Created by Yurii Salimov, January, 2019.
+  Released into the public domain.
 */
 #ifndef SMOOTH_SENSOR_H
 #define SMOOTH_SENSOR_H
 
 #include "Sensor.h"
 
-// Minimum smoothing factor.
-#define AD_MIN_SMOOTHING_FACTOR 2
-
 class SmoothSensor final : public Sensor {
 
   private:
+    // Minimum smoothing factor.
+    static const int MIN_SMOOTHING_FACTOR = 2;
+
     Sensor* origin;
     int smoothingFactor;
     int data;
@@ -48,7 +51,7 @@ class SmoothSensor final : public Sensor {
     */
     SmoothSensor(
       Sensor* origin,
-      int smoothingFactor = AD_MIN_SMOOTHING_FACTOR
+      int smoothingFactor = MIN_SMOOTHING_FACTOR
     );
 
     /**
