@@ -7,6 +7,9 @@
 	v.1.3.3
 	- updated documentation
 
+	v.1.3.5
+	- added virtual destructor
+
 	Created by Yurii Salimov, May, 2018.
 	Released into the public domain.
 */
@@ -22,6 +25,12 @@
 class Sensor {
 
 	public:
+		/**
+      Destructor
+      Deletes Sensor instance.
+    */
+		virtual ~Sensor() {};
+
 		/**
 			Reads and return a signal from a sensor.
 
